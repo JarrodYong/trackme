@@ -11,19 +11,12 @@ TrackMe application" />
 1.0">
 <title>TrackMe</title>
 </head>
-<body>
-    <div class="container">
-<h1>Devices</h1>
-<table id="devices" class="table">
-        <thead>
-        <tr>
-        <th>User</th>
-        <th>Device</th>
-        </tr>
-        </thead>
-        <tbody></tbody>
-        </table>
-</div>    
+<body> 
+<div class="form-group">
+        <label for="command">Command</label>
+        <textarea rows="2" class="form-control" id="command"></textarea>
+     </div>
+        <button class="btn btn-success" id="send-command">Send</button>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js">
 </script> 
 <script src="app.js"></script>
