@@ -1,7 +1,7 @@
 $('#navbar').load('navbar.html');
 const devices = JSON.parse(localStorage.getItem('devices')) || [];
 
-devices.forEach(function(device) {
+devices.forEach(function (device) {
     $('#devices tbody').append(`
     <tr>
     <td>${device.user}</td>
@@ -10,15 +10,15 @@ devices.forEach(function(device) {
     );
 });
 
-$('#add-device').on('click', function() {
+$('#add-device').on('click', function () {
     const user = $('#user').val();
     const name = $('#name').val();
     devices.push({ user: user, name: name });
     localStorage.setItem('devices', JSON.stringify(devices));
-    location.href= '/';
-    });
-  
-    $('#send-command').on('click', function() {
-        const command = $('#command').val();
-        console.log(`command is: ${command}`);
-        });
+    location.href = '/';
+});
+
+$('#send-command').on('click', function () {
+    const command = $('#command').val();
+    console.log(`command is: ${command}`);
+});

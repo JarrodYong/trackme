@@ -4,9 +4,9 @@
   "description": "A web interface to view TrackMe data",
   "main": "\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C server.js",
   "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1",
-  "start": "nodemon server.js"
-      },
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
   "author": "Jarrod-Yong",
   "license": "ISC",
   "dependencies": {
