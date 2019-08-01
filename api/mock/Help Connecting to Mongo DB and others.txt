@@ -1,0 +1,6 @@
+
+To connect to server
+mongo "mongodb://sit209-shard-00-00-do1ki.mongodb.net:27017,sit209-shard-00-01-do1ki.mongodb.net:27017,sit209-shard-00-02-do1ki.mongodb.net:27017/test?replicaSet=sit209-shard-0" --ssl --authenticationDatabase admin --username jkyong --password Euphonium
+
+Importing data
+mongoimport --host sit209-shard-0/sit209-shard-00-00-do1ki.mongodb.net:27017,sit209-shard-00-01-do1ki.mongodb.net:27017,sit209-shard-00-02-do1ki.mongodb.net:27017 --ssl --username jkyong --password Euphonium --authenticationDatabase admin --db sit209 --collection devices --type json --file import.json --jsonArray

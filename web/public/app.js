@@ -1,21 +1,45 @@
 $('#navbar').load('navbar.html');
+$('#footer').load('footer.html');
+const API_URL = 'http://localhost:5000/api';
 const devices = JSON.parse(localStorage.getItem('devices')) || [];
-
-devices.forEach(function (device) {
-    $('#devices tbody').append(`
+$.get(`${API_URL}/devices`)
+    .then(response => {
+        console.log(response);
+    })
+    .catch(error => {
+        console.log(`Error: ${error}`);
+    });
+$.get(`${API_URL}/devices`)
+    .then(response => {
+        response.forEach(device => {
+            $('#devices tbody').append(`
     <tr>
     <td>${device.user}</td>
     <td>${device.name}</td>
     </tr>`
-    );
-});
+            );
+        });
+    })
+    .catch(error => {
+        console.error(`Error: ${error}`);
+    });
 
-$('#add-device').on('click', function () {
-    const user = $('#user').val();
+$('#add-device').on('click', () => {
     const name = $('#name').val();
-    devices.push({ user: user, name: name });
-    localStorage.setItem('devices', JSON.stringify(devices));
-    location.href = '/';
+    const user = $('#user').val();
+    const sensorData = [];
+    const body = {
+        name,
+        user,
+        sensorData
+    };
+    $.post(`${API_URL}/devices`, body)
+        .then(response => {
+            location.href = '/';
+        })
+        .catch(error => {
+            console.error(`Error: ${error}`);
+        });
 });
 
 $('#send-command').on('click', function () {
