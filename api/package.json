@@ -4,6 +4,8 @@
   "description": "List of endpoints for the TrackMe API",
   "main": "api.js",
   "scripts": {
+    "build": "next build",
+    "deploy": "now remove 218271795-sit-209 -y && now -p && now alias",
     "doc": "apidoc -o public/generated-docs/ -e node_modules/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon -r dotenv/config api.js"
@@ -18,6 +20,7 @@
   },
   "devDependencies": {
     "apidoc": "^0.17.7",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "now": "^16.1.1"
   }
 }
