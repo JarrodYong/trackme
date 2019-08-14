@@ -2,17 +2,23 @@
   "name": "trackme",
   "version": "1.0.0",
   "description": "A web interface to view TrackMe data",
-  "main": "\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C server.js",
+  "main": "server.js",
+ 
+    
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "deploy": "git subtree push --prefix web heroku master",
+    "start": "nodemon -r dotenv/config server.js"
   },
   "author": "Jarrod-Yong",
   "license": "ISC",
   "dependencies": {
+    "dotenv" : "^8.0.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
+  },
+  "engines": { 
+    "node": "12.7.0"
   }
 }
