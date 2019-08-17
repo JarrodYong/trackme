@@ -1,7 +1,9 @@
 $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
 const API_URL = 'https://218271795-sit-209.now.sh';
-const devices = JSON.parse(localStorage.getItem('devices')) || [];
+const response = $.get('http://localhost:3001/devices');
+console.log(response);
+
 $.get(`${API_URL}/devices`)
     .then(response => {
         console.log(response);

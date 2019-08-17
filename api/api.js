@@ -9,6 +9,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(express.static(`${__dirname}/public`));
 
+app.get('/docs', (req, res) => {
+res.sendFile(`${__dirname}/public/generated-docs/index.html`);
+});
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -21,10 +25,7 @@ app.get('/api/test', (req, res) => {
     res.send('The API is working!');
 });
 
-app.use(express.static(`${__dirname}/public`));
-app.get('/docs', (req, res) => {
-res.sendFile(`${__dirname}/public/generated-docs/index.html`);
-});
+
 
 /** 
 * @api {get} /api/devices AllDevices An array of all devices
@@ -85,6 +86,8 @@ app.post('/api/devices', (req, res) => {
             : res.send('successfully added device and data');
     });
 });
+
+
 app.post('/api/send-command',(req, res) => {
     console.log(req.body)
     });
