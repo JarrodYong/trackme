@@ -1,5 +1,6 @@
 $('#navbar').load('navbar.html');
 $('#footer').load('footer.html');
+var client = 'mqtt://vgsmseje:DDAiLF3Hb@soldier.cloudmqtt.com:17178';
 const API_URL = 'https://218271795-sit-209.now.sh';
 const response = $.get('http://localhost:3001/devices');
 console.log(response);
